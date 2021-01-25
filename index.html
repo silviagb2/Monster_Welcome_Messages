@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JavaScript Messages</title>
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
 </head>
 <body>
-    <div id="output"></div>
-    <label>Name:</label><input type="text" placeholder="Type your name">
-    <button>Message</button>
+    <div id="container">
+        <div id="output">{{message}}</div>
+        <label>Name:</label><input type="text" placeholder="Type your name" v-model="userInput">
+        <button @click="showMessage">Message</button>
+    </div>
 </body>
-<script>
-    const btn = document.querySelector('button');
-    btn.addEventListener('click', function(){
-        const output = document.querySelector('#output');
-        const name = document.querySelector('input').value;
-        output.innerHTML = `<h1>Hello and welcome, ${name}</h1>`;
-    })
-</script>
 </html>
